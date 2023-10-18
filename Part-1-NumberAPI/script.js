@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const numberForm = document.getElementById("number-form");
-    const factsContainer = document.getElementById("facts-container"); // Updated to target the new div
+    const factsContainer = document.getElementById("facts-container");
 
     numberForm.addEventListener("submit", async function (e) {
         e.preventDefault();
@@ -23,13 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Fetch 4 facts about the favorite number
-        const promises = [];
+        const facts = [];
         for (let i = 0; i < 4; i++) {
-            promises.push(fetchNumberFact(favoriteNumber));
+            facts.push(fetchNumberFact(favoriteNumber));
         }
 
         try {
-            const facts = await Promise.all(promises);
+            const facts = await Promise.all(facts);
 
             // Clear previous facts
             factsContainer.innerHTML = "";
